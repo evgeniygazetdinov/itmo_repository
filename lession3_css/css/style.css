@@ -1,0 +1,70 @@
+h1{
+
+    color: green;
+
+}
+
+#container{
+    height: 100px;
+    width: 300px;
+    background: yellow;
+
+}
+/* селектор класса */
+.text-center{
+    
+
+
+}
+/*дочерний селектор */
+p> span{
+    font-weight: bold;
+}
+       
+    div p a{
+        color: red;
+
+    }
+    div p.brown{
+    color:blue;
+
+}
+/*селектор атрибута
+ * [atrib]
+ * [atribute = 'value']
+ * css-selector
+ * */
+    input[type="text"]{
+        color:red;
+    }
+
+
+
+
+
+.inherit-example {
+    border: 1px solid black;
+}
+
+
+.inherit-example p{
+    border: inherit;
+}
+
+
+#some_id{
+
+    background: blue;
+
+}
+
+
+.some-class{
+
+    background: green;
+}
+
+h5{
+
+    background: red;
+}
