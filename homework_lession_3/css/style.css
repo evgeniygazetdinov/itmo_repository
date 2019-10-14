@@ -1,0 +1,41 @@
+
+body{
+    background-color: lightblue;
+    height: 100px;
+    background-image: url("img/dvig.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position:  50% -10%;
+    margin: 0px;
+}
+
+nav ul{
+    display: flex;
+    margin: 0 auto;
+    max-width: 1200px;
+    list-style-type: none;
+    justify-content: space-evenly;
+}
+
+ul li  {
+    padding: 12px 12px;
+}
+
+
+.post-section .post{
+    border: 1px dashed black;
+
+}
+.post .title{
+    margin-left: auto;
+
+
+}
+
+
+
+ .picture-post img{
+    height: 30%;
+    width:40%;
+
+}
