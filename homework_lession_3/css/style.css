@@ -1,12 +1,16 @@
 
 body{
-    background-color: lightblue;
     height: 100px;
     background-image: url("img/dvig.png");
     background-repeat: no-repeat;
     background-size: 100%;
     background-position:  50% -10%;
     margin: 0px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    background: #fff;
+    position: relative;
 }
 
 nav ul{
@@ -20,22 +24,118 @@ nav ul{
 ul li  {
     padding: 12px 12px;
 }
-
+ul li  a{
+    text-decoration: none;
+    color: darksalmon;
+}
 
 .post-section .post{
-    border: 1px dashed black;
+    position: relative;
+    height: 300px;
+    margin-bottom: 150px;
+}
+.post-2{
+    position: relative;
+    right: 50px;
+    height: 300px;
+}
+.post .title {
+    position: relative;
+    top: 3px;
+    left: 105px;
+    font-size: x-large;
+    font-family: sans-serif;
+    font-style: normal;
+    margin: 0 auto;
+    
+}
+
+.context {
+    display: flex;
+    width: 1000px;
+    height: 500px;
+    margin-left: 200px;
+}
+
+.picture-post{
+    margin-left: 60px;
+    flex:2;
+}
+.post-text p{
+    flex:2;
+    margin-left: 60px;
+}
+
+/*
+.title-2 {
+    position: relative;
+    top: 10px;
+    right: 150px;
+    font-size: x-large;
+    font-family: sans-serif;
+    font-style: normal;
+    margin: 0 auto;
+    
+}
+.title p{
+    position: absolute;
+    left: -15px;
+    margin-top: 4px;
+}
+.title-2 p{
+    position: absolute;
+    left: 31px;
+}
+
+.left-pict{
+    position: relative;
+    left: 90px;
 
 }
-.post .title{
-    margin-left: auto;
-
-
+.right-pict{
+    position: relative;
+    right: 90px;
 }
-
-
-
+.post-2-image{
+    position: relative;
+    display: inline;
+    left: 600px;
+    top: 50px;
+}
  .picture-post img{
-    height: 30%;
-    width:40%;
+    position: absolute;
+    top :60px;
+}
+
+.post-text{
+
+    position: relative;
+}
+
+
+ .post-text p{
+    width: 300px;
+    right: 150px;
+    letter-spacing: 3px;
+    position: absolute;
+}
+.post-text-2 p{
+    right: 0;
+    left: 140px;
+    top:57px;
+    position: absolute;
 
 }
+.author p{
+    position: absolute;
+    top: 26px;
+    right: 50px;
+
+}
+.continue-read p{
+    margin: 0 auto;
+    position: absolute;
+    right: 222px;
+    top: 461px;
+}
+*/
