@@ -1,0 +1,88 @@
+div{
+    width: 400px;
+    height: 200px;
+    background: yellow;
+    margin: 20px;/* внешние поля */
+   /* margin-top: 10px;
+    margin-left:10px;
+    margin-bottom: 10 */
+    margin:15px; /*4 cтороны */
+    margin:15px 30px ; /*top -btm r -l  */
+    margin:15px 20px 10px; /*4 cтороны */
+    margin:15px 25px 10px 35px; /*4 cтороны */
+
+    padding: 30px;
+
+    border: 2px dashed green ;
+    border-radius: 20px;
+    /*ширина тип цвет */
+}
+.inline{
+    display: inline;/*отображается как строчный*/
+}
+.block{
+    display: block;/*отображается как блочный*/
+
+}
+.inline-block{
+
+    display: inline-block;
+
+}
+.block,
+.inline-block{
+    text-decoration: none;
+    color: orange;
+    padding: 10px;
+}
+
+nav ul li{
+    list-style-type: none;
+    display: inline-block;/*for menu */
+    padding: 15px;
+    background: yellow;
+
+}
+
+body{
+    background-image:url("путь к картинке");
+    background-repeat:;
+    background-position:;
+    background-attachment: fixed;/*не действует прокрутка браузера*/
+    background-size:;
+
+}
+
+/*псевдоклассы */
+a:link{
+    background: red;
+}
+a:visited{
+    background: green;
+}
+
+a:focus{
+    background: red;
+}
+p .active{
+
+
+}
+.hover:hover{
+    background: blue;
+
+}
+
+ .active:active{
+    background: red;
+
+}
+.elem:disabled{
+
+}
+.elem:enabled{
+
+}
+.elem:checked{
+
+}

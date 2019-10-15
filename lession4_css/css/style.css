@@ -1,0 +1,77 @@
+
+body{
+
+ height: 100px;
+ background: green;
+ margin: 0px;
+
+
+}
+
+
+
+header{
+    position: fixed;/*позиционирование*/
+    top: 0px;
+    left: 0px;
+    right: 0px;
+
+    background: orangered;
+    
+}
+
+.uprigth{
+    height: 50px;
+    width: 50px;
+    background: red;
+    position: fixed;
+    top: 600px;
+    right: 50px;
+
+}
+h1{
+    position: relative;
+    top: 0px;
+    left: 100px;
+
+}
+
+.wrapper{
+    max-width: 1200px;
+    margin: 0 auto;
+
+
+}
+
+
+section{
+    position: relative;
+
+}
+
+
+section h2{
+    color: red;
+    
+
+}
+
+section  .fish{
+    z-index: 13;
+    height: 200%;
+    width: 30%;
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    
+}
+.grap{
+    position: absolute;
+    height: 400%;
+    width: 400%;
+
+
+
+}
+
+
