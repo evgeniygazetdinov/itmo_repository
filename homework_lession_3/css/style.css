@@ -1,7 +1,7 @@
 
 body{
     height: 100px;
-    background-image: url("img/dvig.png");
+    background-image: url("../img/dvig.png");
     background-repeat: no-repeat;
     background-size: 100%;
     background-position:  50% -10%;
@@ -16,7 +16,7 @@ body{
 nav ul{
     display: flex;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 50%;
     list-style-type: none;
     justify-content: space-evenly;
 }
@@ -55,6 +55,9 @@ ul li  a{
     width: 1000px;
     height: 500px;
     margin-left: 200px;
+}
+.context-2{
+    margin-left: 140px;
 }
 
 .picture-post{
