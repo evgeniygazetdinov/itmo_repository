@@ -55,7 +55,8 @@ ul li  a{
     margin: 30px;
     background-color: whitesmoke;
 }
-.continue-read input{
-    position: absolute;
+.continue-read a{
     right: 30px;
+    margin: 0px;
+    float: right;
 }
