@@ -3,28 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <title>my super form</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
-<p>Private Boat Club numberform </p>
-<form action="submit" method="post"  style="width:100px">
-       
-        <input type="text" name="name" id="" placeholder="name" maxlength=20>
-        <input type="text" name="surname:w" id="" placeholder="surname" maxlength=20>
-        <label for="bday">birth day </label>
-            <input type="date" name="bday" placeholder="bday">
-        <input type="text" name="status" id="" placeholder="your club status in this moment" color="red" style="width:180px" >
+      <form action="submit" method="post">
+            <p class="title">Private Boat Club numberform </p>
+              <input class="absolute name" type="text" name="name" id="" placeholder="name" maxlength=20>
+              <input class="absolute surname" type="text" name="surname" id="" placeholder="surname" maxlength=20>
+              <div class="relative b-form">
+                  <label class="absolute bday" for="bday">birth day </label>
+                  <input class="absolute bday" type="date" name="bday" placeholder="bday">
+              </div>
+                  <input class="absolute status" type="text" name="status" id="" placeholder="your club status in this moment" color="red" style="width:180px" >
 
-        <input type="number" name="income-by-year" placeholder="income by year"style="width:180px">
-        <select name="gender" id="">
-            <option value="man">man</option>
-            <option value="female">woman</option>
-        </select>
-        <input type="checkbox" name="checkbox" value="check" style="font-size:small"/> I have read and agree to the Terms and Conditions and Privacy Policy
-        <input type="submit" name="send form" >
-</form>
-
-
-
-
+              <input class="absolute number" type="number" name="income-by-year" placeholder="income by year">
+                <p class="absolute label-gender">your gender</p>
+              <select class="absolute gender" name="gender" id="">
+                  <option value="man">man</option>
+                  <option value="female">woman</option>
+              </select>
+              <div class="absolute politics">
+                <input class="politics" type="checkbox" name="checkbox" value="check"/> 
+                  <p class="absolute politics-text">
+                    I have read and agree to the Terms and Conditions and Privacy Policy
+                  </p>
+                <br>
+                <input class="absolute butn-sub"type="submit" name="send form" >
+              </div>
+      </form>
 </body>
 </html>
