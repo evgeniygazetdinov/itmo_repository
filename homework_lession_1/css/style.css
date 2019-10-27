@@ -16,15 +16,6 @@ body{
 }
 
 
-
-.relative{
-    position: relative;
-}
-
-.absolute{
-    position: absolute;
-}
-
 form{
     margin: 0 auto;
     width: 300px;
@@ -37,54 +28,51 @@ form{
 }
 
 
-input.surname{
-    right: 60px;
+input.name{
+    margin-left: 20px;
 }
-input.number{
-    top: 100px;
-    right: 12px;
+input.surname{
+    margin-left: 10px;
 }
 .b-form{
-    margin-left: 40px;
-    top: 60px;;
+    margin-left: 15px;
+    margin-top: 7px;
+}
+.b-form label{
+    margin-left: 45px;
 }
 
-select{
-    right: 100px;
-    top: 165px;
-}
-p.label-gender{
-    top: 165px;
-    right: 190px;
+.b-form input{
+    margin-left: 12px;
 }
 
-input.bday{
-    right: 21px;
-}
-label.bday{
-    left: 20px;
-}
-.politics {
-    display: block;
-    top: 200px;
-}
-p.politics-text{
-    width: 333px;
-    left: 20px;
-    bottom: 5px;
-}
-.politics.politics{
-
-
-}
-.status{
+input.status{
+    margin-left: 65px;
     width: 180px;
-    top: 100px;
+    margin-top: 10px;
+}
+    input.number{
+        margin-left: 65px;
+        margin-top: 10px;;
+   }
+   .gender-section{
+       position: relative;
+   }
+   .gender-section p.label-gender{
+    margin-left: 35px;
+    margin-top: 10px;
+}
+.gender-section select.gender{
+    position: absolute;
+    right: 85px;
+    top: 0px;
+    width: 25%;
 }
 input.butn-sub{
-    left: 100px;
-    bottom: -40px;
-    font-size: x-large;
-    color: black;
-    background-color: aqua;
+        background-color: #a29595;
+        float: right;
+        margin-top: -25px;
+        margin-right: 0px;
+        padding: 10px;
+        padding-right: 11px;
 }
