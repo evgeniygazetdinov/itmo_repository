@@ -1,6 +1,81 @@
-.container{
+*{
+    margin: 0;
+}
+p{
+    background-color: indianred;
 }
 
+main{
+    background-image: url(../img/3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container{
+    padding: 50px;
+    margin-left: 50px;
+
+}
+p.title{
+    text-align: center;
+    font-family: initial;
+    font-size: x-large;
+    margin-top: 8px;
+}
 section.header{
     display: flex;
+}
+.first-half-section{
+    width: 600px;
+    height: 500px;
+}
+img.first-fon{
+    width: inherit;
+    margin-bottom: 10px;
+}
+.second-half p.fact-about{
+    margin: 5px;
+    flex-grow: 0;
+    max-height: 20px;
+    text-align: center;
+    border-bottom: 1px solid green;
+}
+header .second-half{
+    display: flex;
+    flex-direction: column;
+    font-style: oblique;
+    font-family: fantasy;
+}
+.second-half p{
+    flex-grow: 1;
+    font-style: oblique;
+    font-family: fantasy;
+    margin: 20px;
+}
+.second-half :nth-child(2n){
+    
+    max-height: 100px;
+    margin:10px;
+    margin-top:20px;
+    padding: 5px;
+}
+.second-half :nth-child(2n+1){
+    max-height: 130px;
+    margin:10px;
+    margin-top:20px;
+    padding: 5px;
+}
+section.footer{
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+}
+.footer .base-footer-element{
+    width: inherit;
+    margin-left: 7px;
+}
+img.img-footer-left,
+img.img-footer-rigth{
+    width: inherit;
+    height: 200px;
 }
