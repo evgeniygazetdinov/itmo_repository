@@ -9,6 +9,8 @@ main{
     background-image: url(../img/3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100%;
+    width: 100%;
 }
 
 .container{
@@ -26,10 +28,11 @@ section.header{
     display: flex;
 }
 .first-half-section{
-    width: 600px;
-    height: 500px;
+    width: 85%;
+    height: 90%;
 }
-img.first-fon{
+img.first-fon,
+.text-fon{
     width: inherit;
     margin-bottom: 10px;
 }
@@ -40,27 +43,26 @@ img.first-fon{
     text-align: center;
     border-bottom: 1px solid green;
 }
-header .second-half{
+.second-half{
     display: flex;
     flex-direction: column;
     font-style: oblique;
     font-family: fantasy;
+    height: 50%;
+    width: 80%;
 }
 .second-half p{
-    flex-grow: 1;
     font-style: oblique;
     font-family: fantasy;
     margin: 20px;
 }
 .second-half :nth-child(2n){
     
-    max-height: 100px;
     margin:10px;
     margin-top:20px;
     padding: 5px;
 }
 .second-half :nth-child(2n+1){
-    max-height: 130px;
     margin:10px;
     margin-top:20px;
     padding: 5px;
@@ -68,7 +70,7 @@ header .second-half{
 section.footer{
     display: flex;
     flex-direction: row;
-    width: 300px;
+    width: 50%;
 }
 .footer .base-footer-element{
     width: inherit;
@@ -76,6 +78,6 @@ section.footer{
 }
 img.img-footer-left,
 img.img-footer-rigth{
-    width: inherit;
-    height: 200px;
+    width: 100%;
+    height: 200px;;
 }
