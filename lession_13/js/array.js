@@ -84,8 +84,7 @@ articles.printObj = function(){
 
 articles.printObj();
 
-
-
+//деструкция
 let book = {
     [id]: 1,
     title: 'Лю́берцы',
