@@ -19,7 +19,7 @@ let range = function(start,step = 1 ,finish){
 
 //задача 3
 
-let return_day_by_number= function(day){
+let return_day_by_number = function(day){
     if (day <=21){
         return day+'дней';
     }
