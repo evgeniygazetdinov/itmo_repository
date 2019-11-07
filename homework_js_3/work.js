@@ -29,3 +29,14 @@ let return_day_by_number = function(day){
 }
 
 //задача 4
+
+
+let array_generator = function(quntity_array,quantity_digit){
+    for(i = 0;i < quntity_array;i++){
+      let arr = Array.from({length: quantity_digit}, () => Math.floor(Math.random() * 9));
+      console.log(arr)
+      console.log(arr.reduce((a ,b) => a + b, 0 ));
+}
+}
+
+console.log(array_generator(5,3));

@@ -4,7 +4,7 @@
 
 let arr = new Array(45);
 for (i = 0; i < arr.length; i++){
-    arr[i] = Math.floor(Math.random() * 10) 
+    arr[i] = Math.floor(Math.random() * 10); 
 }
 let find_seven = function(array){
     for(i = 0; i<arr.length; i++){
