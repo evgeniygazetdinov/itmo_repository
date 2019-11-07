@@ -18,7 +18,7 @@ if (n<target || m <target){
 }
 //3.для нахождени паралелипипеда
 function find_p(height,length,width){
-    p =  2(length * height + height * width + length * height)
+    p =  2*(length * height + height * width + length * height)
     return p;
 
 }
