@@ -1,0 +1,91 @@
+
+
+.grid-cards{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(5,1fr);
+    height: 100vh;
+}
+.grid-cards img{
+    width: 100%;
+    height: 100%;
+}
+.grid-cards :nth-child(1){
+    grid-column: 1/3;
+    grid-row: 1/4;
+}
+.grid-cards :nth-child(2){
+    grid-column: 3/6;
+    grid-row: 1/3;
+
+}
+.grid-cards :nth-child(3){
+    grid-column: 2/5;
+    grid-row: 2/5;
+
+}
+.grid-cards :nth-child(4){
+    grid-column: 1/1;
+    grid-row: 4/6;
+
+}
+.grid-cards :nth-child(5){
+    grid-column: 2/4;
+    grid-row: 4/6;
+
+}
+.grid-cards :nth-child(6){
+    grid-column: 4/6;
+    grid-row: 3/6;
+
+}
+.flip-card{
+    position: relative;
+    height: 300px;
+    margin: 20px 0;
+}
+.flip-card:hover .front{
+   
+    transform: rotateX(180deg);
+}
+.flip-card:hover .back{
+    transform: rotateX(0deg);
+}
+.flip-card: .back{
+    transform: rotateX(-180deg)
+}
+.flip-card .front,
+.flip-card .back{
+position: absolute;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: all 0.5s ease-in;
+    background-color: cyan;
+    backface-visibility: hidden;
+    background-image: url("../img/SW_Commander_1024x409_3_DrSoBRl.jpg");
+    background-position: center center;
+    background-repeat: none;
+}
+.flex-cards{
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+.flex-cards img{
+    width: 100%;
+    height: auto;
+}
+.flex-cards >div{
+    border: 1px solid black;
+    flex:1;
+    padding: 10px;
+    margin: 5px;
+}
+.flex-cards img:hover{
+    transform: scale(1,3);
+}
+.flex-cards img{
+    transition: 0.5s 
+}

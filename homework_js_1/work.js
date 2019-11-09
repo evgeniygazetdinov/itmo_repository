@@ -9,15 +9,19 @@ else{
 }
 //2.ближайщее число к 10
 
-let m = 4,3;
-let n = 11,3;
-let target = 10;
-if (n<target || m <target){
-    console.log(n);
-    return n;
+function find_number_closer(first_number,second_number,target){
+    m = Math.abs(first_number - 10); 
+    n = Math.abs(second_number - 10);
+    return m < n ? first_number : second_numbern;
 }
 //3.для нахождени паралелипипеда
 function find_p(height,length,width){
+    if (height > length){
+        console.log('cлишком большая высота');
+    }
+    if (length > height){
+        console.log('cлишком большая ширина');
+    }
     p =  2*(length * height + height * width + length * height)
     return p;
 

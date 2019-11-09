@@ -4,6 +4,7 @@ let find_sum_natural_number = function(n){
     // 3 = 2+1
     //
     //sum = (5 * (5 + 1) / 2 = (5 * 6) / 2) = 15
+    console.log('сумма натуральных чисел равна')
     return (n * (n + 1)) / 2
 }
 // задача 2
@@ -20,9 +21,13 @@ let range = function(start,step = 1 ,finish){
 //задача 3
 
 let return_day_by_number = function(day){
-    if (day <=21){
+    if (day <= 5 || day === 21){
+        return day+'день';
+    }
+    if (day <=20){
         return day+'дней';
     }
+    
     if (day >=22){
         return day + 'дня';
     }
