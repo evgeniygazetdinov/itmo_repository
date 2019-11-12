@@ -28,12 +28,13 @@ section.header{
     display: flex;
 }
 .first-half-section{
-    width: 85%;
-    height: 90%;
+    /*width: 85%;
+    height: 90%;*/
+    flex: 2;
 }
 img.first-fon,
 .text-fon{
-    width: inherit;
+    width: 100%;
     margin-bottom: 10px;
 }
 .second-half p.fact-about{
@@ -48,8 +49,7 @@ img.first-fon,
     flex-direction: column;
     font-style: oblique;
     font-family: fantasy;
-    height: 50%;
-    width: 80%;
+    flex: 2;
 }
 .second-half p{
     font-style: oblique;
@@ -70,7 +70,6 @@ img.first-fon,
 section.footer{
     display: flex;
     flex-direction: row;
-    width: 50%;
 }
 .footer .base-footer-element{
     width: inherit;
@@ -80,4 +79,11 @@ img.img-footer-left,
 img.img-footer-rigth{
     width: 100%;
     height: 200px;;
+}
+.left{
+    flex: 2;
+}
+.right{
+    flex: 2;
+
 }
