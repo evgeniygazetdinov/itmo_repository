@@ -26,19 +26,7 @@ let cities_sort_separate = function(){
  // задание 4
 
 
- let polycheck = function(word){
+ let polycheck = function(str){
 
-    //разбить слово
-    let div_word = word.split('');
-    console.log(div_word);
-    //попарно каждое слово
-    let posible_polidrome =[]
-    for (let i = 0; i < div_word.length; i++){
-        if (div_word[i] === div_word[div_word.length-i]){
-            posible_polidrome.push(div_word[i])
-
-        }
-        
-    }
-    
+    return str == str.split('').reverse().join('');
  }
