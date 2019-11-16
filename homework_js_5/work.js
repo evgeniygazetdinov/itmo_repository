@@ -1,3 +1,11 @@
+    let books = [
+        {author: 'Лермонтов',title:'Герой нашего времени'},
+        {author: 'Толстой',title:'Война и мир'},
+        {author: 'Гоначаров',title:'Обломов'}
+    ]
+
+
+
 let goods = {
     piano: {
         title: "Пианино",
@@ -26,7 +34,7 @@ let goods = {
     }
 };
 
-
+//первое задание
 
 let get_goods = function(obj,start_price,finish_price){
     values = {}
@@ -38,3 +46,36 @@ let get_goods = function(obj,start_price,finish_price){
     return values
 }
 console.log(get_goods(goods,1,1000))
+
+//второе задание 
+let add_to_cart = function(obj,title,count_to_cart){
+    cart = {}
+    for(let item in obj)
+        if (obj[item].title === title){
+
+            if(obj[item].count >= count_to_cart){
+                cart[item] = obj[item].title;
+                cart[item] =  obj[item].count;
+                console.log(`${obj[item]} добален в корзину`);
+        }
+        else{
+            console.log('такого количества нет в наличии');
+        }
+    }
+    else{
+        console.log('неверное количество')
+    }
+    return cart;
+}
+
+console.log(add_to_cart(goods,'Гитара',1));
+
+// третье заданиe
+
+let book_sort = function (arr){
+    sorted = arr.sort((a, b) => a.title.localeCompare(b.title));
+    return sorted;
+}
+
+
+console.log(book_sort(books));
