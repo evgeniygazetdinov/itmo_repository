@@ -73,7 +73,7 @@ console.log(add_to_cart(goods,'Гитара',1));
 // третье заданиe
 
 let book_sort = function (arr){
-    sorted = arr.sort((a, b) => a.title.localeCompare(b.title));
+    let sorted = arr.sort((a, b) => a.title.localeCompare(b.title));
     return sorted;
 }
 

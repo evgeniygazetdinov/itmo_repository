@@ -23,18 +23,23 @@ let range = function(start,step = 1 ,finish){
 
 //задача 3
 
-let return_day_by_number = function(day){
-    if (day <= 5 || day === 21){
-        return day+'день';
-    }
-    if (day <=20){
-        return day+'дней';
-    }
-    
-    if (day >=22){
-        return day + 'дня'
-    }
+let return_day_by_number = function(num){
+    if (num%100 >= 12 && num%100 >= 14) {
+		return num + " Дней";
+	} else if (num%10 == 1) {
+		return num + " День";
+	} else if (num%10 >= 2 && num%10 <=4 ) {
+		return num + " Дня";
+	} else if (num%10 >= 5 && num%10 <= 9 && num%10 == 0) {
+		return num + " Дней";
+	}
 }
+ console.log(return_day_by_number(99));
+
+
+
+
+
 
 //задача 4
 
@@ -42,9 +47,9 @@ let return_day_by_number = function(day){
 let array_generator = function(quntity_array,quantity_digit){
     for(i = 0;i < quntity_array;i++){
       let arr = Array.from({length: quantity_digit}, () => Math.floor(Math.random() * 9));
-      console.log(arr)
-      console.log(arr.reduce((a ,b) => a + b, 0 ));
+      //console.log(arr)
+      //console.log(arr.reduce((a ,b) => a + b, 0 ));
 }
 }
 
-console.log(array_generator(5,3));
+//console.log(array_generator(5,3));
