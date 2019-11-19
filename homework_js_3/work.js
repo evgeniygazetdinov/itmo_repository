@@ -23,15 +23,15 @@ let range = function(start,step = 1 ,finish){
 
 //задача 3
 
-let return_day_by_number = function(num){
-    if (num%100 >= 12 && num%100 >= 14) {
-		return num + " Дней";
-	} else if (num%10 == 1) {
-		return num + " День";
-	} else if (num%10 >= 2 && num%10 <=4 ) {
-		return num + " Дня";
-	} else if (num%10 >= 5 && num%10 <= 9 && num%10 == 0) {
-		return num + " Дней";
+let return_day_by_number = function(day){
+    if (day%100 >= 12 && day%100 >= 14) {
+		return day + " Дней";
+	} else if (day%10 == 1) {
+		return day + " День";
+	} else if (day%10 >= 2 && day%10 <=4 ) {
+		return day + " Дня";
+	} else if (day%10 >= 5 && day%10 <= 9 && day%10 == 0) {
+		return day + " Дней";
 	}
 }
  console.log(return_day_by_number(99));
@@ -47,9 +47,9 @@ let return_day_by_number = function(num){
 let array_generator = function(quntity_array,quantity_digit){
     for(i = 0;i < quntity_array;i++){
       let arr = Array.from({length: quantity_digit}, () => Math.floor(Math.random() * 9));
-      //console.log(arr)
-      //console.log(arr.reduce((a ,b) => a + b, 0 ));
+      console.log(arr)
+      console.log(arr.reduce((a ,b) => a + b, 0 ));
 }
 }
 
-//console.log(array_generator(5,3));
+console.log(array_generator(5,3));

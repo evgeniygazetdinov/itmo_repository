@@ -1,20 +1,35 @@
 
 
-let table_creation = function(row,column){
-    //remove collection
-   let my_table = document.getElementById('my-table');
-   my_table.style.border = '1';
-   let table_body =  doument.createElement('table-body');
-   for (i = 0; i < 3; i++){
-       let tr = document.createElement('TR');
-       table_creation.appendChild(tr);
-   }
-   for (x = 0; x <5; x++){
-       let td = document.createElement('TD');
-       td.width = '75';
-       tr.appendChild(td);
-   }
+function addCell(tr, val) {
+    var td = document.createElement('td');
 
-my_table .appendChild(table);
-}
-table_creation()
+    td.innerHTML = val;
+    td.style.border ='1px solid black'
+    tr.appendChild(td)
+  }
+
+
+  function addRow(tbl, val_1, val_2, val_3) {
+    var tr = document.createElement('tr');
+
+    addCell(tr, val_1);
+    addCell(tr, val_2);
+    addCell(tr, val_3);
+    tr.style.border ='1px solid black'
+ 
+    tbl.appendChild(tr)
+  }
+
+  function main(width,heigth) {
+    let body = document.getElementsByTagName('body')[0];
+    let tbl = document.createElement('tbl');
+    tbl.style.width = width;
+    tbl.style.heigth = heigth;
+    addRow(tbl, 'foo', 'bar', 'baz');
+    addRow(tbl, 'one', 'two', 'three');
+    addRow(tbl, 'one', 'two', 'three');
+    body.append(tbl)
+  }
+
+
+  main(500,400);
