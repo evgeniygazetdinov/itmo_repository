@@ -117,6 +117,23 @@ function addCell(tr, val) {
     generate_table(goods);
 
 */
+//TODO rebuild
+// to form 
+//0  title price count
+// 1  гитара 1000 25
+
+
+
+
+
+    function create_title_for_row(object){
+       for(i=0; i< object.length; i++){
+
+        console.log(object[i]);
+        
+      }
+    }
+
 
 
     function create_chain(values){
@@ -141,7 +158,7 @@ function addCell(tr, val) {
       return tr
     }
 
-    function create_table(object){
+   function create_table(object){
       let body = document.getElementsByTagName('body')[0];
       //for creation row()
       for(i = 0; i < object.length; i++){
@@ -152,4 +169,4 @@ function addCell(tr, val) {
     }
 
 
-    create_table(goods)
+    //create_table(goods)
