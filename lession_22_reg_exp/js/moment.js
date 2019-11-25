@@ -18,3 +18,5 @@ reg_exp2 = /[0-9]/;
 let regexp = /r.+g/ig;
 console.log(sting.match(regexp));
 news = 'с новым годом!'
+regexp = /[^0-9 a-z A-Z]/
+console.log(news.match())
