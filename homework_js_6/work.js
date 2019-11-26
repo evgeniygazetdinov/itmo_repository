@@ -56,117 +56,100 @@ let goods = [
 
 
 
-
-/*
-
-function addCell(tr, val) {
-    var td = document.createElement('td');
-
-    td.innerHTML = val;
-    td.style.border ='1px solid black'
-    tr.appendChild(td)
-  }
-
-
-  function addRow(tbl, val_1, val_2, val_3) {
-    var tr = document.createElement('tr');
-
-    addCell(tr, val_1);
-    addCell(tr, val_2);
-    addCell(tr, val_3);
-    tr.style.border ='1px solid black'
- 
-    tbl.appendChild(tr)
-  }
-
-  function main(width,heigth) {
-    let tbl = document.createElement('tbl');
-    tbl.style.width = width;
-    tbl.style.heigth = heigth;
-    addRow(tbl, 'foo', 'bar', 'baz');
-    addRow(tbl, 'one', 'two', 'three');
-    addRow(tbl, 'one', 'two', 'three');
-    body.append(tbl)
-  }
-
-
-  main(500,400);
-
-  function generate_table(values){
-    let body = document.getElementsByTagName('body')[0];
-    for(let value in values){
-      //create chains
-      let td = document.createElement('td');
-      td.classList.add('chain');
-
-      let title = document.createElement("h2");
-      title.innerText = values[value]["title"];
-      let price = document.createElement('p');
-      price.innerText = values[value]['price'];
-      price.style.border ='1px solid black';
-      console.log(values);
-    
-      //append chain in rows
-        //for(let i = 0; i<= values.length; i++){
-          let tr = document.createElement('tr'); 
-          tr.append(td);
-          body.append(tr);
-        
+    function find_keys_for_title(object){
+      //find all keys from all objects
+      keys = []
+      for(i=0;i<object.length;i++){
+      Object.keys(object[i])
+      .forEach(function eachKey(key) { 
+        keys.push(key)
+       });;
       }
-    }
-    generate_table(goods);
-
-*/
-//TODO rebuild
-// to form 
-//0  title price count
-// 1  гитара 1000 25
-
-
-
-
-
-    function create_title_for_row(object){
-       for(i=0; i< object.length; i++){
-
-        console.log(object[i]);
-        
-      }
+      return keys
     }
 
+    function get_sorting_keys(keys){
+      //remove duplicates
+      sort_keys = new Set()
+      for(i = 0;i < keys.length; i++){
+        sort_keys.add(keys[i])
+        }
+      return sort_keys;
+    }
+
+    //function extract_values_from(objects){
+    //  for()
+    //}
 
 
-    function create_chain(values){
-      
+    function create_chain(text_for_chain,upper = false){
       //inductive approach
-      console.log(values);
-      for (value in values){
+      //TODO fix upper for text
         var td = document.createElement('td');
-        td.innerHTML = values['value'];
-        td.style.border ='1px solid black'
-      }
-      return td;
+        if (upper === true){
+          td.innerHTML = text_for_chain.upper();
+        }
+        else{
+          td.innerHTML = text_for_chain;
+          td.style.border ='1px solid black';
+        }
+        return td;
     }
 
-    function create_row(object){
+    function create_row(keys,upper = false){
       let tr = document.createElement('tr'); 
-      //call create one chain in loop
-      for(let values in object){
-        chain = create_chain(values);
+      for (let i = 0;i< keys.length; i++){
+        chain = create_chain(keys[i],upper = false);
         tr.append(chain);
       }
-      return tr
+      return tr;
     }
+    
+    
+    function fill_title(object){
+      keys_for_title = find_keys_for_title(object);
+      sorted_keys = get_sorting_keys(keys_for_title);
+      keys= Array.from(sorted_keys);
+      title = create_row(keys,true);
+      return title;
+    }
+
+    function extract_values_from(object){
+      //extract all values from objects
+      values = []
+      for(let i =0;i<object.length;i++){
+        
+        values.push(Object.values(object[i]));
+      }
+      return values;
+    }
+     
+    function fill_rows(object){
+      rows = []
+      values = extract_values_from(object);
+      for(i = 0;i<values.length;i++){
+        row = create_row(values[i]);
+        rows.push(row);
+      }
+      console.log(rows);
+      return rows
+    }
+
+      //pack this into array
+
 
    function create_table(object){
       let body = document.getElementsByTagName('body')[0];
       //for creation row()
-      for(i = 0; i < object.length; i++){
-        row = create_row(object);
-        body.append(row);
+    //  for(i = 0; i < object.length; i++){
+       title = fill_title(object) 
+       //other = fill_rows(object)
+       rows = fill_rows(object);
+       body.append(title);
+       body.append(rows);
+       //body.append()
       }
 
-    }
 
 
-    //create_table(goods)
+    create_table(goods);
