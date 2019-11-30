@@ -6,10 +6,9 @@ body{
 $dark: black;
 $white: white;
 //$ переменная
-@mixin flex($direction){
-    display: flex;
-    flex-direction: $direction;
-}
+//@mixin flex($direction){
+//    flex-direction: $direction;
+//}
 .task-manager{
  height: 100vh;   
 }
@@ -18,9 +17,9 @@ $white: white;
 
 //вызов функции mixin
 
-@include flex(row);
+//@include flex(row);
 .menu{
-    @include flex(column);
+ ///   @include flex(column);
     flex:1;
     background: $dark;
     color: $white;
