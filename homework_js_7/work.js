@@ -94,17 +94,15 @@ function create_table(object){
   document.body.append(title_with_other);
   //access to  title
   title_with_other.rows[0].addEventListener('click', function(event){
-    value_for_compare = (event.target.innerHTML);
+    value_for_compare = (event.target.innerHTML.toLowerCase().toString());
+    console.log(value_for_compare)
     //enumerate object with values after => compare this
-    for(let good = 0;good < object.length;){
-      for(prop in object[good]){
-        console.log(prop[value_for_compare]);
-      }
-    }
+    object.sort( (a, b) =>a[value_for_compare].localeCompare(b[value_for_compare]))
+    document.body.removeChild(table);
+    create_table(object);
   }
 );
 }
-//create_table(goods);
 create_table(articles);
 
 
