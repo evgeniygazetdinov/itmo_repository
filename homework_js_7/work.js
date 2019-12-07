@@ -96,7 +96,7 @@ function create_table(object){
   title_with_other.rows[0].addEventListener('click', function(event){
     value_for_compare = (event.target.innerHTML.toLowerCase().toString());
     console.log(value_for_compare)
-    //enumerate object with values after => compare this
+    //TODO rebuld sort 
     object.sort( (a, b) =>a[value_for_compare].localeCompare(b[value_for_compare]))
     document.body.removeChild(table);
     create_table(object);
@@ -108,6 +108,49 @@ create_table(articles);
 
 
 
+
+
+//задание 2
+
+function genRow(numArr){    
+  let div1 = document.createElement("div");
+    //генерация карточек
+  let j=0;
+  let text=1;          //подпись карточки
+  while(j<numArr) {
+      for (let i = 0; i < numArr; i++) {
+          let p1 = document.createElement("p");
+          p1.innerText = text;
+          p1.style.cssText = `
+          width: 50px;         
+          border: 1px solid black;
+          display: inline-block;
+          margin: 10px;
+          background: red;
+          text-align: center;
+          padding: 30px ;
+      `;
+      }
+      j++;
+    
+  }
+return div1;
+}
+
+
+function generateTable(row,column){
+  let table = document.createElement('table');
+  for(let i=0;i<column;i++){
+    table.append(genRow(i,3));
+  }
+  return table;
+  }
+
+
+
+
+let table = genRow(1,1);
+document.body.append(table);
 
 
 
