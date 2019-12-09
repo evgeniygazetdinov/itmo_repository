@@ -103,24 +103,20 @@ function create_table(object){
   }
 );
 }
-create_table(articles);
-
-
-
-
+//create_table(articles);
 
 
 //задание 2
-
-function genRow(numArr){    
+function randomPrize(){
+  let array = ['prize', 'none']
+  let random_prize = array[Math.floor(Math.random() * 2)] 
+  return random_prize
+}
+  function generateRow(row){
   let div1 = document.createElement("div");
-    //генерация карточек
-  let j=0;
-  let text=1;          //подпись карточки
-  while(j<numArr) {
-      for (let i = 0; i < numArr; i++) {
+  for(let i=0;i < row;i++){  
           let p1 = document.createElement("p");
-          p1.innerText = text;
+          p1.innerText = randomPrize();
           p1.style.cssText = `
           width: 50px;         
           border: 1px solid black;
@@ -130,33 +126,19 @@ function genRow(numArr){
           text-align: center;
           padding: 30px ;
       `;
-      }
-      j++;
-    
+    div1.append(p1)
+
   }
-return div1;
+  return div1;
 }
 
-
-function generateTable(row,column){
-  let table = document.createElement('table');
-  for(let i=0;i<column;i++){
-    table.append(genRow(i,3));
+function create_table(row,column){
+let table = document.createElement('table');
+ for(let i=0;i<column;i++){
+    let columns_in_table = generateRow(row);
+    table.append(columns_in_table);
   }
-  return table;
-  }
-
-
-
-
-let table = genRow(1,1);
+ return table;
+}
+let table =  create_table(4,3);
 document.body.append(table);
-
-
-
-
-
-
-
-
-
