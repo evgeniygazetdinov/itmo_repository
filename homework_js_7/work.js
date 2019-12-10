@@ -114,9 +114,11 @@ function randomPrize(){
 }
   function generateRow(row){
   let div1 = document.createElement("div");
+  //TODO data set insert
   for(let i=0;i < row;i++){  
           let p1 = document.createElement("p");
-          p1.innerText = randomPrize();
+          p1.innerText = '?';
+          p1.dataset.secret = randomPrize();
           p1.style.cssText = `
           width: 50px;         
           border: 1px solid black;
@@ -126,7 +128,7 @@ function randomPrize(){
           text-align: center;
           padding: 30px ;
       `;
-    div1.append(p1)
+    div1.append(p1);
 
   }
   return div1;
@@ -140,5 +142,16 @@ let table = document.createElement('table');
   }
  return table;
 }
-let table =  create_table(4,3);
-document.body.append(table);
+
+function tableWithPrize(numberColumn,numberRow){
+  let table =  create_table(numberColumn,numberRow);
+  document.body.append(table);
+  //prize handler here
+  let prizeHandler = document.getElementsByTagName('table');
+  prizeHandler.addEventListener('click',getPresentByClick)
+  function getPresentByClick(event){
+      console.log(event);
+
+    };
+}
+tableWithPrize(4,3)
