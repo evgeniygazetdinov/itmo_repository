@@ -143,15 +143,40 @@ let table = document.createElement('table');
  return table;
 }
 
+
+function updateAttempt(counter){
+    let attempt = document.createElement('h1');
+    attempt.innerText = 'ваши попытки '+counter;
+    document.body.append(attempt);
+    if(counter >3){
+      attempt.innerText = 'ваши попытки истекли';
+      document.body.append(attempt); 
+    }
+}
+function removeOlderAttempt() {
+  let element = document.getElementsByTagName('h1')[0];
+  element.parentNode.removeChild(element);
+}
+
+
+
+
 function tableWithPrize(numberColumn,numberRow){
   let table =  create_table(numberColumn,numberRow);
   document.body.append(table);
-  //prize handler here
-  let prizeHandler = document.getElementsByTagName('table');
+  let counter = 0;
+  let prizeHandler = document.getElementsByTagName('table')[0];
+  updateAttempt(counter);
+  
   prizeHandler.addEventListener('click',getPresentByClick)
   function getPresentByClick(event){
-      console.log(event);
-
+      let click = event.target;
+      let prize = click.dataset.secret;
+      // handle your attempt
+      removeOlderAttempt(); 
+      counter+=1;
+      updateAttempt(counter);
+      //add prize changer
     };
 }
 tableWithPrize(4,3)
