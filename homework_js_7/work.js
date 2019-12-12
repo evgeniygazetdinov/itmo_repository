@@ -153,12 +153,10 @@ function updateAttempt(counter){
       document.body.append(attempt); 
     }
 }
-function removeOlderAttempt() {
-  let element = document.getElementsByTagName('h1')[0];
+function removeOlderAttempt(what_delete) {
+  let element = document.getElementsByTagName(what_delete)[0];
   element.parentNode.removeChild(element);
 }
-
-
 
 
 function tableWithPrize(numberColumn,numberRow){
@@ -173,10 +171,16 @@ function tableWithPrize(numberColumn,numberRow){
       let click = event.target;
       let prize = click.dataset.secret;
       // handle your attempt
-      removeOlderAttempt(); 
+      removeOlderAttempt('h1'); 
       counter+=1;
       updateAttempt(counter);
-      //add prize changer
+      //TODO add prize changer
+      click.innerText = prize;
+      click.style.background = 'yellow';
+      if (counter > 2){
+        this.removeEventListener('click',getPresentByClick);
+      }
+      
     };
 }
 tableWithPrize(4,3)
