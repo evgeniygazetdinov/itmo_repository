@@ -86,7 +86,7 @@ function fill_other(object,table){
 
 
 
-function create_table(object){
+function createSortTables(object){
   let table = document.createElement("table");
   let row = table.insertRow();
   create_title(object,row);
@@ -99,11 +99,11 @@ function create_table(object){
     //TODO rebuld sort 
     object.sort( (a, b) =>a[value_for_compare].localeCompare(b[value_for_compare]))
     document.body.removeChild(table);
-    create_table(object);
+    createSortTables(object);
   }
 );
 }
-//create_table(articles);
+createSortTables(articles);
 
 
 //задание 2
