@@ -103,7 +103,7 @@ function createSortTables(object){
   }
 );
 }
-createSortTables(articles);
+//createSortTables(articles);
 
 
 //задание 2
@@ -183,4 +183,4 @@ function tableWithPrize(numberColumn,numberRow){
       
     };
 }
-tableWithPrize(4,3)
+tableWithPrize(5,3)
