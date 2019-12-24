@@ -32,55 +32,61 @@ createCheckbox();
 
 
 
-function checkLoginPassword(){
-//    let elements = createElements();
-    let error = document.createElement('p')    
-    let login = document.createElement('input');
-    let pass = document.createElement('input');
-    let form = document.createElement('form');
-    let p1 = document.createElement('p');
-    let p2 = document.createElement('p');
-    let tab = document.createElement('br');
-    let send = document.createElement('input')
-    error.innerText = '';
-    pass.type = 'password';
-    send.type = 'button';
-    send.value = 'отправить';
-    p1.innerText = 'логин';
-    p2.innerText = 'пароль';
-    form.append(tab);
-    form.append(p1);
-    form.append(login);
-    form.append(tab);
-    form.append(p2);
-    form.append(pass);
-    form.append(tab);
-    form.append(send);
-    
-    
-    function drawErrorNear(error,nameOfElement){
-        let pass = 'пароль';
-        let log = 'логин';
-        let warn = 'неверный';
-        error.style.background = 'red';
-        if(nameOfElement == 'login'){
-            error.innerText = warn+log;
-        } 
-        else{
-            error.innerText = warn+pass;
+
+
+
+
+function focusOn(){
+    if(this.type === 'password'){
+        if (this.value.length < 3 || this.value.length > 10){
+            this.previousElementSibling.classList.add("error");
+            this.style.background = 'red';
         }
+        else {
+            this.style.background = 'green';
+            this.previousElementSibling.classList.remove("error");
+            this.previousElementSibling.classList.add("success");
+        };
     }
+    else{
+        {
+        if (this.value.length < 6){
+            this.style.background = 'red';
+            this.nextElementSibling.classList.add("error");
+        }
+        else {
+            this.style.background = 'green';
+            this.nextElementSibling.classList.remove("error");
+            this.nextElementSibling.classList.add("success");
+        };
 
-    
-    
-    login.addEventListener("focusin", login.style.background = 'red';);
-    login.addEventListener("focusout", () => login.style.background = 'white');
-
-
-    console.log(form);
-    document.body.append(form);   
-
-
+    }}
 }
 
-checkLoginPassword()
+function validateForm(event){
+    event.preventDefault();
+    let fData = new FormData(this);
+    //take values from windows
+    console.log(fData.get('log'));
+    console.log(fData.get('pass'));
+}
+
+function reloadForm(event){
+    log.style.background = 'white';
+    pass.style.background = 'white';
+    log.nextElementSibling.classList.toggle("error");
+    log.nextElementSibling.classList.toggle('success');
+    pass.previousElementSibling.classList.toggle('error');
+    pass.nextElementSibling.classList.toggle('success');
+}
+
+
+
+    
+let form = document.forms.login_pass_form;
+let log = document.getElementsByName('log')[0];
+let pass = document.getElementsByName('pass')[0];
+log.addEventListener('focus',focusOn);
+pass.addEventListener('focus',focusOn);
+form.addEventListener('submit',validateForm);
+form.addEventListener('reset',reloadForm)
