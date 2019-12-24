@@ -30,7 +30,7 @@ function createCheckbox(){
 createCheckbox();
 
 
-
+//задание 4
 
 
 
