@@ -55,8 +55,8 @@ function move(obj, event) {
     draw_image(obj);
   }
 }
-let canvas, ctx = createPlace(1, 'canvas', 900, 600, 'green');
-let score_canvas, score_ctx = createPlace(0, 'canvas', 900, 100, 'red');
+let canvas, ctx = createplace(1, 'canvas', 900, 600, 'green');
+let score_canvas, score_ctx = createplace(0, 'canvas', 900, 100, 'red');
 //что рисовать 
 let tiger = {
   img: 't.png',
