@@ -51,7 +51,6 @@ let rabbit = {
 function drawImg(obj) {
     let img = new Image();
     img.src = 'img/' + obj.img;
-    console.log(obj.x,obj.y)
 
     img.onload = () => {
         ctx.drawImage(
@@ -69,23 +68,20 @@ function move(obj, event) {
     // d - перемещение вправо
     // s - перемещение вниз
     console.log(event.code);
-    if (event.code === "KeyD") {
-        console.log("перемещение вправо");
+    if (event.code === "KeyD" && (obj.x <= canvas.width -150)) {
+        console.log(canvas.width,obj.x)
         clearImg(obj);
         obj.x += 20;
         drawImg(obj);
     } else if (event.code === "KeyA" && obj.x >= 0) {
-        console.log("перемещение влево");
         clearImg(obj);
         obj.x -= 20;
         drawImg(obj);
     } else if (event.code === "KeyW" && (obj.y >= 0 )) {
-        console.log(obj.x);
         clearImg(obj);
         obj.y -= 20;
         drawImg(obj);
-    } else if (event.code === "KeyS" ) {
-        console.log("перемещение вниз");
+    } else if (event.code === "KeyS" && (obj.y <= canvas.height -150)) {
         clearImg(obj);
         obj.y += 20;
         drawImg(obj);
