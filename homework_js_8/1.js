@@ -1,15 +1,12 @@
 
-
-
-
 function findRandomCoordinates(place_on){
   let specific_number = Math.floor(Math.random() * 800);//find random number by 1000
-  if((place_on - 128) <= specific_number){
-    console.log(specific_number,place_on);  
+  if((place_on - 200) >= specific_number){
+    console.log(specific_number);  
     return specific_number;
       
   }
-  findRandomCoordinates(place_on)
+  return Math.abs(place_on - Math.abs(specific_number))
 }
 
 let score = document.getElementsByTagName('canvas')[0]
@@ -91,9 +88,9 @@ function move(obj, event) {
 function clearImg(obj) {
     ctx.fillRect(obj.x, obj.y, obj.width, obj.height);
 }
-drawImg(rabbit);
 
 drawImg(tiger);
+drawImg(rabbit);
 document.addEventListener("keydown",
     move.bind(document, tiger));
 
