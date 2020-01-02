@@ -11,13 +11,12 @@ function findRandomCoordinates(place_on){
 
 let score = document.getElementsByTagName('canvas')[0]
 score.width = 900;
-score.height = 50;
+score.height = 300;
 
 let score_ctx = score.getContext("2d");
 score_ctx.fillStyle = "red";
 score_ctx.fillRect(0,0,900, 600);
-let canvas = document
-    .getElementsByTagName("canvas")[1];
+let canvas = document.getElementsByTagName("canvas")[1];
 
 canvas.width = 900;
 canvas.height = 600;
@@ -25,8 +24,6 @@ canvas.height = 600;
 let ctx = canvas.getContext("2d");
 ctx.fillStyle = "green";
 ctx.fillRect(0,0,900, 600);
-
-
 
 
 
@@ -44,20 +41,53 @@ let rabbit = {
   width: 128,
   height: 128
 };
+let dead_rabbit = {
+  img: 'd_r.png',
+  x: 22,
+  y: 22,
+  width:128,
+  height:128
+};
+let palma = {
+  img: 'p.png',
+  x: 22,
+  y: 22,
+  width:128,
+  height:128
+};
 
-function drawImg(obj) {
+function drawImg(obj,place) {
     let img = new Image();
     img.src = 'img/' + obj.img;
 
-    img.onload = () => {
-        ctx.drawImage(
+    if (place === 'score'){
+      console.log('some')
+      img.onload = () => {
+      score_ctx.drawImage(
             img,
             obj.x, obj.y,
             obj.width, obj.height
         );
+     }
     }
+    else{
+    img.onload = () => {
+      ctx.drawImage(
+            img,
+            obj.x, obj.y,
+            obj.width, obj.height
+        );
+       }
+      }
+};
+function updateScore(score_counter){
+    score_counter=+1;
+    score = document.getElementsByName('score')[0];
+    console.log(score_counter);
+    score.innerText = score_counter;
+    drawImg(dead_rabbit,'score');
+  
 }
-
 
 function move(obj, event) {
     // w - перемещение вверх
@@ -69,31 +99,38 @@ function move(obj, event) {
         console.log(canvas.width,obj.x)
         clearImg(obj);
         obj.x += 20;
-        drawImg(obj);
+        drawImg(obj,1);
     } else if (event.code === "KeyA" && obj.x >= 0) {
         clearImg(obj);
         obj.x -= 20;
-        drawImg(obj);
+        drawImg(obj,1);
     } else if (event.code === "KeyW" && (obj.y >= 0 )) {
         clearImg(obj);
         obj.y -= 20;
-        drawImg(obj);
+        drawImg(obj,1);
     } else if (event.code === "KeyS" && (obj.y <= canvas.height -150)) {
         clearImg(obj);
         obj.y += 20;
-        drawImg(obj);
+        drawImg(obj,1);
     }
+    if ((obj.x <= (rabbit.x + 100) && obj.x >= (rabbit.x - 100)) && (obj.y <= (rabbit.y + 100) && obj.y >= (rabbit.y - 100))) {
+      clearImg(rabbit);
+      rabbit.x = findRandomCoordinates(canvas.width);
+      rabbit.y = findRandomCoordinates(canvas.height);
+      drawImg(rabbit,1);
+      updateScore(score_counter);
+
+  }
 }
 
 function clearImg(obj) {
     ctx.fillRect(obj.x, obj.y, obj.width, obj.height);
 }
-
-drawImg(tiger);
-drawImg(rabbit);
+drawImg(tiger,1);
+drawImg(rabbit,1);
+score_counter = 0;
 document.addEventListener("keydown",
     move.bind(document, tiger));
-
 
 
 
