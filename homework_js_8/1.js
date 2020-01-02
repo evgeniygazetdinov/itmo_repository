@@ -11,7 +11,7 @@ function findRandomCoordinates(place_on){
 
 let score = document.getElementsByTagName('canvas')[0]
 score.width = 900;
-score.height = 300;
+score.height = 100;
 
 let score_ctx = score.getContext("2d");
 score_ctx.fillStyle = "red";
@@ -45,8 +45,8 @@ let dead_rabbit = {
   img: 'd_r.png',
   x: 0,
   y: 0,
-  width:50,
-  height:50
+  width:100,
+  height:100
 };
 let palma = {
   img: 'p.png',
@@ -66,7 +66,7 @@ function drawImg(obj,place) {
       img.onload = () => {
       score_ctx.drawImage(
             img,
-            obj.x+=60, obj.y,
+            obj.x+=100, obj.y,
             obj.width, obj.height
         );
      }
@@ -81,14 +81,8 @@ function drawImg(obj,place) {
        }
       }
 };
-function updateScore(score_counter){
-    score_counter=+1;
-    score = document.getElementsByName('score')[0];
-    console.log(score_counter);
-    score.innerText = 'убито'+score_counter;
-    drawImg(dead_rabbit,'score')
+
   
-}
 
 function move(obj, event) {
     // w - перемещение вверх
@@ -119,17 +113,15 @@ function move(obj, event) {
       rabbit.x = findRandomCoordinates(canvas.width);
       rabbit.y = findRandomCoordinates(canvas.height);
       drawImg(rabbit,'canvas');
-      updateScore(score_counter);
-
+      drawImg(dead_rabbit,'score')
   }
 }
-
+//TODO score counter
 function clearImg(obj) {
     ctx.fillRect(obj.x, obj.y, obj.width, obj.height);
 }
 drawImg(tiger,'canvas');
 drawImg(rabbit,'canvas');
-score_counter = 0;
 document.addEventListener("keydown",
     move.bind(document, tiger));
 
