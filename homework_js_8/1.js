@@ -43,10 +43,10 @@ let rabbit = {
 };
 let dead_rabbit = {
   img: 'd_r.png',
-  x: 22,
-  y: 22,
-  width:128,
-  height:128
+  x: 0,
+  y: 0,
+  width:50,
+  height:50
 };
 let palma = {
   img: 'p.png',
@@ -61,11 +61,12 @@ function drawImg(obj,place) {
     img.src = 'img/' + obj.img;
 
     if (place === 'score'){
+
       console.log('some')
       img.onload = () => {
       score_ctx.drawImage(
             img,
-            obj.x, obj.y,
+            obj.x+=60, obj.y,
             obj.width, obj.height
         );
      }
@@ -84,8 +85,8 @@ function updateScore(score_counter){
     score_counter=+1;
     score = document.getElementsByName('score')[0];
     console.log(score_counter);
-    score.innerText = score_counter;
-    drawImg(dead_rabbit,'score');
+    score.innerText = 'убито'+score_counter;
+    drawImg(dead_rabbit,'score')
   
 }
 
@@ -99,25 +100,25 @@ function move(obj, event) {
         console.log(canvas.width,obj.x)
         clearImg(obj);
         obj.x += 20;
-        drawImg(obj,1);
+        drawImg(obj,'canvas');
     } else if (event.code === "KeyA" && obj.x >= 0) {
         clearImg(obj);
         obj.x -= 20;
-        drawImg(obj,1);
+        drawImg(obj,'canvas');
     } else if (event.code === "KeyW" && (obj.y >= 0 )) {
         clearImg(obj);
         obj.y -= 20;
-        drawImg(obj,1);
+        drawImg(obj,'canvas');
     } else if (event.code === "KeyS" && (obj.y <= canvas.height -150)) {
         clearImg(obj);
         obj.y += 20;
-        drawImg(obj,1);
+        drawImg(obj,'canvas');
     }
     if ((obj.x <= (rabbit.x + 100) && obj.x >= (rabbit.x - 100)) && (obj.y <= (rabbit.y + 100) && obj.y >= (rabbit.y - 100))) {
       clearImg(rabbit);
       rabbit.x = findRandomCoordinates(canvas.width);
       rabbit.y = findRandomCoordinates(canvas.height);
-      drawImg(rabbit,1);
+      drawImg(rabbit,'canvas');
       updateScore(score_counter);
 
   }
@@ -126,8 +127,8 @@ function move(obj, event) {
 function clearImg(obj) {
     ctx.fillRect(obj.x, obj.y, obj.width, obj.height);
 }
-drawImg(tiger,1);
-drawImg(rabbit,1);
+drawImg(tiger,'canvas');
+drawImg(rabbit,'canvas');
 score_counter = 0;
 document.addEventListener("keydown",
     move.bind(document, tiger));
