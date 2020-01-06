@@ -88,7 +88,7 @@ class Validator {
              //console.log(elem.dataset.validate,);
             if (elem.dataset.validate){
                 let rulesValues = rules[elem.dataset.validate];
-                 console.log(rulesValues);
+                 //console.log(rulesValues);
                 // {
                 //     minLength: 4,
                 //     maxLength: 18
@@ -99,7 +99,6 @@ class Validator {
                     // maxLength и тд
 
                     if(!this[rule](elem.value, rulesValues[rule])){
-                      
                         // this["minLength"](val, rule);
                         // this.minLength(val, rule);
                         // TODO: вместо errorHandler и return
@@ -117,9 +116,7 @@ class Validator {
 //                        }
 //                        messages = this[rule];
                         let place = elem.dataset.validate;
-                        let cause = messages[place];
-                        console.log(cause);
-                        errorHandler(form,counter,place);
+                        errorHandler(form,counter,place,rulesValues);
                     }
                 }
             }
@@ -167,18 +164,13 @@ let handler = (text, color) =>{
 
 
 let successHandler = (form) => {
-    console.log("Действие " +
-        "в случае успешного заполнения формы");
     handler('форма заполнена верно', 'green');
 };
 
-let errorHandler = (form,counter,place) => {
-  /*  console.log("Действие" +
-        " в случае ошибок в заполнении формы");
-*/
-console.log(counter);
-   handler(`в ${place} есть ошибки`,'red',);
-
+let errorHandler = (form,counter,place,cause) => {
+  console.log(cause);
+  
+  handler(`в ${place} есть ошибки: ${Object.keys(cause)}'  '${Object.values(cause)}`,'red',);
 };
 
 validator.init({
