@@ -51,43 +51,44 @@ class Validator {
     }
 
     minLength(elemValue, ruleValue){
-        console.log("метод minLength: ",
+        /*console.log("метод minLength: ",
             "пользователь ввел: " + elemValue,
             "правило ruleValue: " + ruleValue);
+        */    
         return elemValue.length >= ruleValue;
     }
     maxLength(elemValue, ruleValue) {
-        console.log("метод maxLength:",
+       /* console.log("метод maxLength:",
             "пользователь ввел: " + elemValue,
             "правило ruleValue: " + ruleValue);
+            */
         return elemValue.length <= ruleValue;
     }
     required(elemValue){
+       /*
         console.log("метод required:",
             "пользователь ввел: " + elemValue);
+            */
         return elemValue.length > 0;
     }
     reg_match(elemValue, ruleValue) {
+        /*
         console.log("метод reg_match:",
             "пользователь ввел: " + elemValue,
             "правило ruleValue: " + ruleValue);
+        */    
         return ruleValue.test(elemValue);
     }
 
     validate(event){
         event.preventDefault();
         let elements = form.elements;
+        let counter = [];
         for (let elem of elements){
-             console.log(elem.dataset.validate);
-             console.log('here');
-            // login
-            // password
-            // name
-            // comment
-            // undefined
+             //console.log(elem.dataset.validate,);
             if (elem.dataset.validate){
                 let rulesValues = rules[elem.dataset.validate];
-                // console.log(rulesValues);
+                 console.log(rulesValues);
                 // {
                 //     minLength: 4,
                 //     maxLength: 18
@@ -96,16 +97,29 @@ class Validator {
                     // console.log(rule);
                     // minLength
                     // maxLength и тд
+
                     if(!this[rule](elem.value, rulesValues[rule])){
-                        console.log(this[rule])
+                      
                         // this["minLength"](val, rule);
                         // this.minLength(val, rule);
                         // TODO: вместо errorHandler и return
                         //  выводить сообщение об ошибке
                         //  и обновлять счетчик ошибок (счетчик может быть переменной,
                         //  массивом, объектов)
-                        errorHandler(form);
-                        return;
+                        //error_place.style.backgroundColor = 'red';
+                        //error_place.innerText = `ошибок ${counter.length}:`
+                        //for(let i=0;i<counter.length;i++){
+                        //    form = document.getElementsByTagName('form')[0];
+                        //    let er = document.createElement('p');
+                        //    er.innerText = counter[i];
+                       //     form.append(er);
+
+//                        }
+//                        messages = this[rule];
+                        let place = elem.dataset.validate;
+                        let cause = messages[place];
+                        console.log(cause);
+                        errorHandler(form,counter,place);
                     }
                 }
             }
@@ -113,7 +127,6 @@ class Validator {
         // TODO: проверять счетчик ошибок,
         //  если ошибок, нет вызывать successHandler(form);
         //  если есть errorHandler(form);
-        successHandler(form);
     }
 }
 
@@ -143,15 +156,29 @@ let messages = {
         required: "Поле обязательно для заполнения"
     }
 };
+let handler = (text, color) =>{
+    let error_place = document.getElementById('message');
+    let p = document.createElement('p');
+    p.innerText = text;
+    p.style.backgroundColor = color;
+    error_place.append(p);
+
+}
+
 
 let successHandler = (form) => {
     console.log("Действие " +
         "в случае успешного заполнения формы");
+    handler('форма заполнена верно', 'green');
 };
 
-let errorHandler = (form) => {
-    console.log("Действие" +
+let errorHandler = (form,counter,place) => {
+  /*  console.log("Действие" +
         " в случае ошибок в заполнении формы");
+*/
+console.log(counter);
+   handler(`в ${place} есть ошибки`,'red',);
+
 };
 
 validator.init({
