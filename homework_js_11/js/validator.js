@@ -106,7 +106,7 @@ class Validator {
                     }
                 }
                 if(counter.length === 0){
-                successHandler(form);
+                successHandler(form)
                 }
             }
         }
