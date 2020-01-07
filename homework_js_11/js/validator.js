@@ -99,25 +99,14 @@ class Validator {
                     // maxLength и тд
 
                     if(!this[rule](elem.value, rulesValues[rule])){
-                        // this["minLength"](val, rule);
-                        // this.minLength(val, rule);
-                        // TODO: вместо errorHandler и return
-                        //  выводить сообщение об ошибке
-                        //  и обновлять счетчик ошибок (счетчик может быть переменной,
-                        //  массивом, объектов)
-                        //error_place.style.backgroundColor = 'red';
-                        //error_place.innerText = `ошибок ${counter.length}:`
-                        //for(let i=0;i<counter.length;i++){
-                        //    form = document.getElementsByTagName('form')[0];
-                        //    let er = document.createElement('p');
-                        //    er.innerText = counter[i];
-                       //     form.append(er);
-
-//                        }
-//                        messages = this[rule];
+                        counter.push(rulesValues);
+                        console.log(counter.length);
                         let place = elem.dataset.validate;
                         errorHandler(form,counter,place,rulesValues);
                     }
+                }
+                if(counter.length === 0){
+                successHandler(form);
                 }
             }
         }
