@@ -82,6 +82,17 @@ $arr = [
         'count' => 4
     ],
 ];
-$result = krsort($arr,'price');
-echo $result;
+$price = array_column($arr, 'price');
+$count = array_column($arr,'count');
+var_dump($arr);
+array_multisort(array_column($arr, 'price'), SORT_DESC, $arr);
+var_dump($arr);
+//второй 
+function cmp($a, $b) {
+    return $a['price'] > $b['price'];
+  }
+
+    uasort($arr, "cmp");
+    var_dump($arr);
+
 ?>
