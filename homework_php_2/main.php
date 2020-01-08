@@ -11,18 +11,47 @@ for($i=1;$i < 10; $i++){
 };
 ?>
 <?php
-
+echo('<br>');
 echo 'Задание 2';
 ?>
 <form name="form" action="" method="get">
-  <input type="text" name="subject" id="subject" value="Car Loan">
+  <input type="text" name="subject" id="subject" value="">
+  <input type="submit" value="check button">
 </form>
 <?php
-$x = $_GET['subject']; 
-echo $x;
+if($_GET){
+    calculate_y(); 
+};
 function calculate_y(){
 
+$x = $_GET['subject']; 
+echo'<br>';
+$y = ($x*0.1);
+return $y;
 }
 
 
 ?>
+
+
+<?php
+echo '<br>';
+echo 'Задание 3';
+
+function find_iteration(){
+    $number = 800;
+    $counter = 0;
+    while($number >50){
+        $number = $number /2;
+        $counter+=1;
+    }
+    return $counter;
+};
+echo '<br>';
+echo 'количество итераций при делении 800 на 2 через while';
+echo '<br>';
+echo find_iteration();
+
+
+
+
