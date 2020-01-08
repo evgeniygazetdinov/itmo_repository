@@ -52,6 +52,36 @@ echo 'количество итераций при делении 800 на 2 ч�
 echo '<br>';
 echo find_iteration();
 
+?>
 
 
 
+
+
+<?php
+echo ' задание 5';
+$arr = [
+    '1'=> [
+        'price' => 10,
+        'count' => 2
+    ],
+    '2'=> [
+        'price' => 5,
+        'count' => 5
+    ],
+    '3'=> [
+        'price' => 8,
+        'count' => 5
+    ],
+    '4'=> [
+        'price' => 12,
+        'count' => 4
+    ],
+    '5'=> [
+        'price' => 8,
+        'count' => 4
+    ],
+];
+$result = krsort($arr,'price');
+echo $result;
+?>
