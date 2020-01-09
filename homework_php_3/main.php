@@ -44,4 +44,37 @@ function find_name_from_path(){
     $file = basename($name); 
     return $file;
 }
+?>
+<?php
+echo('<br>');
+echo 'Задание 3';
+echo('<br>');
+echo 'Сравнить два слова';
+?>
+<form name="form" action="" method="get">
+  <input type="text" name="first_word" id="subject" value="">
+  <input type="text" name="second_word" id="subject" value="">
+  <input type="submit" value="to camelcase">
+</form>
+<p>
+result:
+</p>
+<?php
+if($_GET){
+    echo compare_to_words(); 
+};
 
+function compare_to_words(){
+    $first = $_GET['first_word']; 
+    $second = $_GET['second_word']; 
+    $first_arr = str_split($first);
+    $second_arr = str_split($second);
+    $len_for_compare =($strlen($first)>$strlen($second)?$first:$second);
+    $counter = 0;
+    for($x=0;$x<$len_for_compare;$x++){
+        if($first_arr[x] === $second_arr[x]){
+            $counter=+1; 
+        }
+    } 
+    return $counter;
+}
