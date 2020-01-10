@@ -78,3 +78,20 @@ function compare_to_words(){
     } 
     return $counter;
 }
+?>
+<?php
+
+echo 'задание 4';
+function broke_digit($digit){
+    $str = (string) $digit;
+    //TODO think about save digit
+    $for_plus = (int) explode('',$str);
+    return 1;
+}
+
+function sum_and_sort_digits_in_array($arr){
+    $for_sort = array();
+    for($i=0;$i<count($arr);$i++){
+        array_push($for_sort,broke_digit($arr[$i]));
+    }
+}
