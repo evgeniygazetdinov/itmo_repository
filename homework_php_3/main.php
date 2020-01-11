@@ -83,10 +83,10 @@ function compare_to_words(){
 
 echo 'задание 4';
 function broke_digit($digit){
-    $str = (string) $digit;
-    //TODO think about save digit
-    $for_plus = (int) explode('',$str);
-    return 1;
+   $str = strval($digit);
+   for($i)
+   //convert to string after get access to array string and return each element in array before it convert to int
+   return 1;
 }
 
 function sum_and_sort_digits_in_array($arr){
