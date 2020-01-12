@@ -82,16 +82,42 @@ function compare_to_words(){
 <?php
 
 echo 'задание 4';
+echo'<br>';
 function broke_digit($digit){
    $str = strval($digit);
-   for($i)
-   //convert to string after get access to array string and return each element in array before it convert to int
-   return 1;
+   $array_with_words = str_split($str);
+   $separated_digits = array();
+   for($i=0;$i< count($array_with_words);$i++){
+        array_push($separated_digits,(int)$array_with_words[$i]);
+   }
+   return $separated_digits;
+}
+function sum_numbers($array_with_digits){
+
+    $sum = 0;
+    for($i=0;$i<count($array_with_digits);$i++){
+        $sum+=((int)$array_with_digits[$i]);   
+    }
+    return $sum;
 }
 
 function sum_and_sort_digits_in_array($arr){
-    $for_sort = array();
+    $broken_digits = array();
+    $sum_digits = array();
     for($i=0;$i<count($arr);$i++){
-        array_push($for_sort,broke_digit($arr[$i]));
+        array_push($broken_digits,broke_digit($arr[$i]));
     }
+    for($i=0;$i<count($broken_digits);$i++){
+        array_push($sum_digits,sum_numbers($broken_digits[$i]));
+    }
+    sort($sum_digits);
+    return $sum_digits;
+
 }
+$ar = [100, 13, 55];
+var_dump($ar);
+echo ('<br>');
+echo 'sum and sorted';
+echo ('<br>');
+var_dump(sum_and_sort_digits_in_array($ar));
+?>
