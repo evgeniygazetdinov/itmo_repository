@@ -7,8 +7,9 @@ function calculate_time_arrive(){
    let ny = currentDate.clone().tz("America/New_York");
    console.log(currentDate.format("YYYY MMMM DD HH:mm"));
    console.log(ny.format("YYYY MMMM DD HH:mm"));
-   let time_arrive = ny.add(11,'hours');
-   console.log(time_arrive['_d']);
-
+   let diff_beetween =currentDate.format("HH") - ny.format("HH");
+   console.log(diff_beetween);
+   let time_arrive = currentDate.add(10-diff_beetween,'hours');
+   console.log(time_arrive);
 }
 calculate_time_arrive();
