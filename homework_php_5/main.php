@@ -1,28 +1,20 @@
 
-<input name="upload[]" type="file" multiple="multiple" />
-
-
-
-<?php
-$total = count($_FILES['upload']['name']);
-
-// Loop through each file
-for( $i=0 ; $i < $total ; $i++ ) {
-
-  //Get the temp file path
-  $tmpFilePath = $_FILES['upload']['tmp_name'][$i];
-
-  //Make sure we have a file path
-  if ($tmpFilePath != ""){
-    //Setup our new file path
-    $newFilePath = "./uploadFiles/" . $_FILES['upload']['name'][$i];
-
-    //Upload the file into the temp dir
-    if(move_uploaded_file($tmpFilePath, $newFilePath)) {
-
-      //Handle other code here
-
-    }
-  }
-}
+<?php 
+if(isset($_POST['submit'])){
+ 
+ $countfiles = count($_FILES['file']['name']);
+ var_dump($_FILES['file']);
+ for($i=0;$i<$countfiles;$i++){
+  $filename = $_FILES['file']['name'][$i];
+  move_uploaded_file($filename,'upload/'.$filename);
+ }
+} 
 ?>
+<?php
+echo "Задание 1";
+?>
+<form method='post' action='' enctype='multipart/form-data'>
+ <input type="file" name="file[]" id="file" multiple>
+
+ <input type='submit' name='submit' value='Upload'>
+</form>
