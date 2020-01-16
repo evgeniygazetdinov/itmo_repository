@@ -14,7 +14,8 @@ function generateRandomName(){
 function fill_folder()
 {   $text_for_file = makeRandomString(rand(1000,10000));
     $filename = generateRandomName();
-    $myfile = fopen("logs.txt", "a") or die("Unable to open file!");
+    $name_for_save = 
+    $myfile = fopen(".txt", "a") or die("Unable to open file!");
     fwrite($myfile, "\n". $text_for_file);
     fclose($myfile);
 }
