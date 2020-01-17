@@ -14,9 +14,7 @@ function generateRandomName(){
 function content_for_folder($path_for_create)
 {   $text_for_file = makeRandomString(rand(1000,10000));
     $filename = generateRandomName();
-    var_dump($path_for_create);
-    var_dump($path_for_create . '/'. $filename .'.txt');
-    $name_for_save = $filename .'.txt'; 
+    $name_for_save = $path_for_create . '/'.$filename .'.txt'; 
     $myfile = fopen($name_for_save, "a") or die("Unable to open file!");
     fwrite($myfile, "\n". $text_for_file);
     fclose($myfile);
@@ -24,17 +22,21 @@ function content_for_folder($path_for_create)
 function create_folder($path)
 {
     $name_folder = generateRandomName();
-    $create = $path . "/".$name_folder;
+    $create_path = $path . "/".$name_folder;
     mkdir($create_path);
     return  $create_path;
 }
 
 
 function create_folder_with_content()
-{
+{   
+    $quan_files = rand(5,20);
     $path = getcwd();
     $folder_for_fill = create_folder($path);
-    $fill_forlder = content_for_folder($folder_for_fill);
+    for($i=0;$i<$quan_files;$i++)
+    {
+        $fill_forlder = content_for_folder($folder_for_fill);
+    }
 }
 
 function create_folders()
@@ -45,6 +47,39 @@ function create_folders()
         create_folder_with_content();
     }
 }
-create_folder_with_content();
-//create_folders();
+
+function get_folder_list()
+{
+    $path = getcwd();
+    $files = scandir($path);
+    $is_dirs = [];
+    for($i=0;$i<count($files);$i++)
+    {
+        if((is_dir($path .'/'.$files[$i])) && ($files[$i]!== '..') && ($files[$i] !==  "."))
+        {
+            array_push($is_dirs,$files[$i]);
+        }
+    }
+    return is_dirs;
+}
+
+function remove_all($folders)
+{
+    
+}
+
+
+function delete_folders()
+{
+    $folders = get_folder_list(); 
+    $remove_alL($folders);
+}
+
+
+function main()
+{
+    #create_folders();
+    delete_folders();
+}
+main();
 ?>
