@@ -1,0 +1,20 @@
+{
+    "name": "evgesha/wind_store",
+    "description": "this simple wind_store powered on php",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "evgeniynikolaevich",
+            "email": "zplacesound@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4":{
+            "Evgesha\\Wind-store\\": "src/"
+        }
+    }
+
+}
