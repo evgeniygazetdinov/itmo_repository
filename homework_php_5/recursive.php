@@ -48,15 +48,11 @@ function create_folders()
     }
 }
 
-function get_folder_list($for_delete=false)
+function get_folder_list()
 {
     $path = getcwd();
     $files = scandir($path);
     $is_dirs = [];
-    if($for_delete)
-    {
-        $files = scandir($path .'/'. $for_delete);
-    } 
     for($i=0;$i<count($files);$i++)
     {
         if((is_dir($path .'/'.$files[$i])) && ($files[$i]!== '..') && ($files[$i] !==  "."))
@@ -66,38 +62,42 @@ function get_folder_list($for_delete=false)
     }
     return $is_dirs;
 }
-function remove_all_in_folder($folder)
+
+
+function delete_handler()
 {
-    $get_list_files = get_folder_list($folder);
-    var_dump($get_list_files);
-   # if(count($folder)>0)
-   #remove_files();
-       # {
-    #}
+    $folders = get_folder_list();
+    $path_for_delete = getcwd() . "/" . end($folders);
+    system("rm -rf ".escapeshellarg($path_for_delete));
+    
+    echo "dir $path_for_delete deleted";
+    var_dump($folders);
+    var_dump(count($folders)); 
+    if (count($folders)>1 && (end($folders) !== '..') &&  end($folders) !== '.')
+    {
+    
+        delete_handler();
+    }
 }
 
-
-
-function remove_all($folders)
-{
-    var_dump(count($folders));
-    for($i=0;$i<count($folders);$i++)
-        remove_all_in_folder($folders[$i]);
-        #move_up();
-        #remove_folder($folder);
-}
 
 
 function delete_folders()
 {
-    $folders = get_folder_list(); 
-    remove_all($folders);
+    $folders = get_folder_list();
+    if(count($folders)>0)
+    {
+        delete_handler();
+    }
+    else{
+    var_dump("dir are deleted");
+}
 }
 
 
 function main()
 {
-    #create_folders();
+    create_folders();
     delete_folders();
 }
 main();
