@@ -1,33 +1,37 @@
 <?php
+namespace itmo_test_repository\f\Models;
+
 class BooksModel
 {
     public function getAllBooks(){
-        return [[
-            'id'=>1,
-            'title'=>"PHP",
-            "description"=>"Про PHP",
-            'page_count'=>127
-        ],
-        [
-            'id'=>2,
-            'title'=>"HTML",
-            "description"=>341,
-            'page_count'=>132
-        ],
-        [
-            'id'=>3,
-            'title'=>"JS",
-            "description"=>"ПРО js",
-            'page_count'=>1
-        ],
-
-
-    ];
+        return [
+            [
+                'id'=>1,
+                'title'=>'PHP',
+                'description'=>'Описание PHP',
+                'page_count'=>127
+            ],
+            [
+                'id'=>2,
+                'title'=>'JS',
+                'description'=>'Описание JS',
+                'page_count'=>78
+            ],
+            [
+                'id'=>3,
+                'title'=>'HTML',
+                'description'=>'Описание HTML',
+                'page_count'=>341
+            ],
+            [
+                'id'=>4,
+                'title'=>'Базы Данных',
+                'description'=>'Описание Базы Данных',
+                'page_count'=>721
+            ],
+        ];
     }
-    public function return_book($id)
-    {
-        $this->getAllBooks();
-        return $this[$id];
+    public function getById($id){
+        return $this->getAllBooks()[$id-1];
     }
 }
-?>

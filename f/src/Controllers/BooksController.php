@@ -1,33 +1,45 @@
 <?php
+namespace Itmo_test_repository\F\Controllers;
 
+use Itmo_test_repository\F\Controller;
+use Itmo_test_repository\F\BooksModel;
 
-class BooksController extends Controller 
+class BooksController extends Controller
 {
+    private $books_model;
     public function __construct()
     {
-        $this->book_model = new BooksModel();
+        $this->books_model = new BooksModel();
     }
-    public function indexAction()
-    {
+    // /books
+    // имя_контроллера/имя_метода
+    // -> BooksController :: indexAction
+    public function indexAction(){
         $template = 'template.php';
         $content = 'books.php';
+        $books = $this->books_model->getAllBooks();
         $data = [
-            'page_title'=>'Книги'
+            'page_title'=>'Книги',
+            'all_books'=>$books,
+        ];
+
+        echo $this->render_page($content,
+            $template, $data);
+    }
+//    $param = 2;
+//    $controller = new BooksController();
+//    $controller->showAction($param);
+    public function showAction($id) {
+        $template= 'template.php';
+        $content = 'book.php';
+        $book = $this->books_model->getById($id);
+        $data = [
+            'page_title' => $book['title'],
+            'book'=>$book
         ];
         echo $this->render_page($content,
             $template, $data);
     }
-    public function showAction($id)
-    {
-        $template = 'template.php';
-        $content = 'book.php';
-        $book = $this->book_model->return_book($id);
-        $data = [
-            'page_title'=> $book['title'],
-            'book'=> $book
-        ];
-        echo $this->render_page($content,
-        $template, $data);
-    }
-
 }
+
+// инициализация пакета - composer init

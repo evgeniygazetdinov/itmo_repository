@@ -48,11 +48,15 @@ function create_folders()
     }
 }
 
-function get_folder_list()
+function get_folder_list($for_delete=false)
 {
     $path = getcwd();
     $files = scandir($path);
     $is_dirs = [];
+    if($for_delete)
+    {
+        $files = scandir($path .'/'. $for_delete);
+    } 
     for($i=0;$i<count($files);$i++)
     {
         if((is_dir($path .'/'.$files[$i])) && ($files[$i]!== '..') && ($files[$i] !==  "."))
@@ -60,19 +64,34 @@ function get_folder_list()
             array_push($is_dirs,$files[$i]);
         }
     }
-    return is_dirs;
+    return $is_dirs;
 }
+function remove_all_in_folder($folder)
+{
+    $get_list_files = get_folder_list($folder);
+    var_dump($get_list_files);
+   # if(count($folder)>0)
+   #remove_files();
+       # {
+    #}
+}
+
+
 
 function remove_all($folders)
 {
-    
+    var_dump(count($folders));
+    for($i=0;$i<count($folders);$i++)
+        remove_all_in_folder($folders[$i]);
+        #move_up();
+        #remove_folder($folder);
 }
 
 
 function delete_folders()
 {
     $folders = get_folder_list(); 
-    $remove_alL($folders);
+    remove_all($folders);
 }
 
 

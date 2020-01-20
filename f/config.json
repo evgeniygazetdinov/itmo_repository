@@ -1,0 +1,20 @@
+{
+    "urls": {
+        "main":
+        {
+        "path":"/",
+        "controller": "Itmo_test_reposirory\\F\\Controllers\\IndexController::IndexAction",
+        "method": "GET",
+        },
+        "show_books":
+        {
+            "path": "/books",
+            "controller": "Itmo_test_reposirory\\F\\Controllers\\BooksController::IndexAction"
+        },
+        "show_book":
+        {
+            "path": "/books/show/{id:\\d+}",
+            "controller": "Itmo_test_reposirory\\F\\Controllers\\BooksController::showAction"
+        }
+}
+}

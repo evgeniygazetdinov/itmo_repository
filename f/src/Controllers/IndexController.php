@@ -1,17 +1,16 @@
 <?php
+namespace Itmo_test_repository\F\Controllers;
 
-//файл - IndexController.php
+use Itmo_test_repository\f\Core\Controller;
+
 class IndexController extends Controller
-{ 
+{
     public function indexAction()
     {
-      
         $template = 'template.php';
         $content = 'main.php';
-        $books =$this->books_model->getAllBooks();
         $data = [
-            'page_title'=>'Главная',
-            'all_books'=>$books,
+            'page_title'=>'Главная'
         ];
         echo $this->render_page($content,
             $template, $data);

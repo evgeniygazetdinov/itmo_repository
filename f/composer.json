@@ -1,20 +1,13 @@
 {
-    "name": "evgesha/wind_store",
-    "description": "this simple wind_store powered on php",
+    "name": "ifmo/web",
+    "description": "MVC example",
     "type": "project",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "evgeniynikolaevich",
-            "email": "zplacesound@gmail.com"
-        }
-    ],
     "minimum-stability": "dev",
     "require": {},
     "autoload": {
-        "psr-4":{
-            "Evgesha\\Wind-store\\": "src/"
-        }
+       "psr-4": {
+           "Ifmo_test_repository\\F\\": "src/"
+       }
     }
-
 }
