@@ -71,9 +71,8 @@ function delete_handler()
     system("rm -rf ".escapeshellarg($path_for_delete));
     
     echo "dir $path_for_delete deleted";
-    var_dump($folders);
-    var_dump(count($folders)); 
-    if (count($folders)>1 && (end($folders) !== '..') &&  end($folders) !== '.')
+    echo "<br>";
+    if (count($folders)>1)
     {
     
         delete_handler();
@@ -85,13 +84,11 @@ function delete_handler()
 function delete_folders()
 {
     $folders = get_folder_list();
+    var_dump($folders);
     if(count($folders)>0)
     {
         delete_handler();
     }
-    else{
-    var_dump("dir are deleted");
-}
 }
 
 
