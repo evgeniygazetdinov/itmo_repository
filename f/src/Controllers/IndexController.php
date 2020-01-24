@@ -1,18 +1,16 @@
 <?php
-namespace Itmo_test_repository\F\Controllers;
+namespace Ifmo\Web\Controllers;
 
-use Itmo_test_repository\f\Core\Controller;
+use Ifmo\Web\Core\Controller;
 
 class IndexController extends Controller
 {
     public function indexAction()
     {
-        $template = 'template.php';
         $content = 'main.php';
         $data = [
             'page_title'=>'Главная'
         ];
-        echo $this->render_page($content,
-            $template, $data);
+    return $this->generateResponse($content, $data);
     }
 }

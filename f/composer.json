@@ -4,10 +4,12 @@
     "type": "project",
     "license": "MIT",
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "nikic/fast-route": "^2.0@dev"
+    },
     "autoload": {
        "psr-4": {
-           "Ifmo_test_repository\\F\\": "src/"
+           "Ifmo\\Web\\": "src/"
        }
     }
 }

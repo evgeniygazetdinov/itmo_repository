@@ -1,20 +1,19 @@
 {
-    "urls": {
-        "main":
-        {
-        "path":"/",
-        "controller": "Itmo_test_reposirory\\F\\Controllers\\IndexController::IndexAction",
-        "method": "GET",
-        },
-        "show_books":
-        {
-            "path": "/books",
-            "controller": "Itmo_test_reposirory\\F\\Controllers\\BooksController::IndexAction"
-        },
-        "show_book":
-        {
-            "path": "/books/show/{id:\\d+}",
-            "controller": "Itmo_test_reposirory\\F\\Controllers\\BooksController::showAction"
-        }
-}
+  "urls": {
+    "main": {
+      "path": "/",
+      "controller": "Ifmo\\Web\\Controllers\\IndexController::indexAction",
+      "method": "GET"
+    },
+    "show books": {
+      "path": "/books",
+      "controller": "Ifmo\\Web\\Controllers\\BooksController::indexAction",
+      "method": "GET"
+    },
+    "show book": {
+      "path": "/books/show/{id:\\d+}",
+      "controller": "Ifmo\\Web\\Controllers\\BooksController::showAction",
+      "method": "GET"
+    }
+  }
 }
