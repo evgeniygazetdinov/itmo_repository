@@ -1,0 +1,48 @@
+
+
+
+.flip-card:hover .front{
+   
+    transform: rotateX(180deg);
+}
+.flip-card:hover .back{
+    transform: rotateX(0deg);
+}
+.flip-card .back{
+    transform: rotateX(-180deg)
+}
+.flip-card .front,
+.flip-card .back{
+position: absolute;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: all 0.5s ease-in;
+    background-color: cyan;
+    backface-visibility: hidden;
+    background-image: url("../img/SW_Commander_1024x409_3_DrSoBRl.jpg");
+    background-position: center center;
+    background-repeat: none;
+}
+.flex-cards{
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+.flex-cards img{
+    width: 100%;
+    height: auto;
+}
+.flex-cards >div{
+    border: 1px solid black;
+    flex:1;
+    padding: 10px;
+    margin: 5px;
+}
+.flex-cards img:hover{
+    transform: scale(1,3);
+}
+.flex-cards img{
+    transition: 0.5s 
+}
