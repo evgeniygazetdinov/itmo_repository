@@ -16,17 +16,21 @@ result:
 if($_GET){
     echo short_links(); 
 };
-echo'<br>';
 
 
-function check_link()
+
+function check_link($url_for_check)
 {
-  if ((filter_var($url, FILTER_VALIDATE_URL) === FALSE ) && $url !== '') {
-    return echo ('Not a valid URL');
+  $string = 'url is valid !';
+  $url = trim($url_for_check);
+  if ((filter_var($url, FILTER_VALIDATE_URL) === false) || $url === '') {
+    $string = 'Not a valid URL';
   }
-  return echo 'url is valid !'; 
+  echo $url;
+  echo '<br>';
+  echo $string;
 }
-
+echo '<br>';
 function short_links()
 {
     $get = $_GET;
