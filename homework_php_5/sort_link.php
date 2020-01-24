@@ -23,7 +23,11 @@ function check_link($url_for_check)
 {
   $string = 'url is valid !';
   $url = trim($url_for_check);
+<<<<<<< HEAD
   if ((filter_var($url, FILTER_VALIDATE_URL) === false) || (empty($url_for_check))) {
+=======
+  if ((filter_var($url, FILTER_VALIDATE_URL) === false) || $url === '') {
+>>>>>>> 83db96db1af7939da4b877a7919b63fb69931d88
     $string = 'Not a valid URL';
   }
   echo $url;
