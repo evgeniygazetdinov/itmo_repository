@@ -23,19 +23,36 @@ function check_link($url_for_check)
 {
   $string = 'url is valid !';
   $url = trim($url_for_check);
-  if ((filter_var($url, FILTER_VALIDATE_URL) === false) || $url === '') {
+  if ((filter_var($url, FILTER_VALIDATE_URL) === false) || $url === '') 
+  {
     $string = 'Not a valid URL';
+    return false;
   }
   echo $url;
   echo '<br>';
   echo $string;
+  return true;
 }
+
 echo '<br>';
 function short_links()
 {
     $get = $_GET;
     $url = $get['url'];
-    check_link($url);
+    $short_link = check_link($url);
+    $res = "";
+    if ($short_link)
+    {
+      $r = parse_url($url);
+      $res = $r["scheme"] . $r["host"];
+      
+    }
+
+    else
+    {
+      $res = uniqid($url);
+    }
+   return $res;
 }
 
 
