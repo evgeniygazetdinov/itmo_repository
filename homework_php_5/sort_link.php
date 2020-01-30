@@ -41,20 +41,25 @@ function short_links()
     $url = $get['url'];
     $short_link = check_link($url);
     $res = "";
-    if ($short_link)
-    {
-      $r = parse_url($url);
-      $res = $r["scheme"] . $r["host"];
+    if(!empty($url)){
+        if ($short_link)
+          {
+            $r = parse_url($url);
+            $res = $r["scheme"] . $r["host"];
+          }
+          else
+          {
+            $res = uniqid($url);
+          }
+            $file_for_write = fopen('logs.txt',"a");
+            fwrite($file_for_write,$res);
+            fwrite($file_for_write,PHP_EOL);
+            fclose($file_for_write);
+          }
+    else{
+          echo "string empty";
+        }
     }
-
-    else
-    {
-      $res = uniqid($url);
-    }
-      $file_for_write = fopen("$url.txt","a");
-      fwrite($file_for_write,$res); 
-      return $res;
-}
 
 
 
