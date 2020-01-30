@@ -45,14 +45,15 @@ function short_links()
     {
       $r = parse_url($url);
       $res = $r["scheme"] . $r["host"];
-      
     }
 
     else
     {
       $res = uniqid($url);
     }
-   return $res;
+      $file_for_write = fopen("$url.txt","a");
+      fwrite($file_for_write,$res); 
+      return $res;
 }
 
 

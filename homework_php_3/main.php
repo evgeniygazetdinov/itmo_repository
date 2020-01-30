@@ -120,4 +120,34 @@ echo ('<br>');
 echo 'sum and sorted';
 echo ('<br>');
 var_dump(sum_and_sort_digits_in_array($ar));
+
+echo "Задание 5";
+$ToLower = function($str) {
+    return mb_strtolower($str); 
+};
+
+$ToUpper = function($str) {
+    return mb_strtoupper($str); 
+};
+
+$FirstWordUpper = function($str) {
+    $strArr = mb_split("\s", mb_strtolower($str));
+    $newStrArr = [];
+    for ($i = 0; $i < count($strArr); $i++) {
+        $upWord = mb_convert_case($strArr[$i], MB_CASE_TITLE);
+        array_push($newStrArr, $upWord);
+    }
+    return implode(" ", $newStrArr);
+};
+
+function stringConverter(string $str, callable $func){
+
+    return $func($str);
+}
+
+$str = 'Cъешь ещё этих Мягких французских булок, Да выпей чаю';
+var_dump(stringConverter($str, $ToLower));
+var_dump(stringConverter($str, $ToUpper));
+var_dump(stringConverter($str, $FirstWordUpper));
+
 ?>
